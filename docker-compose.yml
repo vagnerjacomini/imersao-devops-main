@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  api:
+    # Constrói a imagem a partir do Dockerfile no diretório atual.
+    build: .
+    container_name: gestao-escolar-api
+    # Mapeia a porta 8000 do host para a porta 8000 do contêiner.
+    ports:
+      - "8000:8000"
+    # Monta o volume nomeado 'db_data' no diretório /app/data dentro do contêiner.
+    volumes:
+      - db_data:/app/data
+
+# Define o volume nomeado que será usado para persistir os dados do banco.
+volumes:
+  db_data:
